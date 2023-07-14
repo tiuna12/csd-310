@@ -11,21 +11,19 @@ timothy = {
         "student_id": "1007",
         "first_name": "Timothy",
         "last_name": "Baller"
-    },
-
+        }
 
 carlos = {
         "student_id": "1008",
         "first_name": "Carlos",
         "last_name": "Miller"
-    },
-
+        }
 
 ashley = {
         "student_id": "1009",
         "first_name": "Ashley",
         "last_name": "Williams"
-    }
+        }
 
 
 students = db.students
