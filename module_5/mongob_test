@@ -6,4 +6,4 @@ client = MongoClient(url)
 
 db=client.pytest
 
-print(db.list_collection_names)
+print(db.list_collection_names())
