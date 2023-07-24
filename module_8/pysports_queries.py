@@ -3,7 +3,7 @@ from mysql.connector import errorcode
 
 config = {
     "user": "pysports_user",
-    "password": "MySQL8IsGreat!",
+    "password": "MySQL8IsGreat",
     "host": "127.0.0.1",
     "database": "pysports",
     "raise_on_warnings": True
@@ -27,20 +27,18 @@ try:
 
      
     cursor.execute("SELECT player_id, first_name, last_name, team_id FROM player")
-
-    # get the results from the cursor object 
+ 
     players = cursor.fetchall()
 
     print ("\n  -- DISPLAYING PLAYER RECORDS --")
 
-    # iterate over the players data set and display the results
     for player in players:
         print("  Player ID: {}\n  First Name: {}\n  Last Name: {}\n  Team ID: {}\n".format(player[0], player[1], player[2], player[3]))
 
     input("\n\n  Press any key to continue... ")
 
 except mysql.connector.Error as err:
-    """ handle errors """
+    
 
     if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
         print("  The supplied username or password are invalid")
@@ -52,6 +50,6 @@ except mysql.connector.Error as err:
         print(err)
 
 finally:
-    """ close the connection to MySQL """
+    
     
     db.close()
