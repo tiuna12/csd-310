@@ -1,17 +1,18 @@
 import mysql.connector
 from mysql.connector import errorcode
 
-cconfig = {
+config ={
     "user": "pysports_user",
-    "password": "MySQL8IsGreat!",
+    "password": "MySQL8IsGreat",
     "host": "3306",
-    "database": "pysports"
-    "raise_on_warnings":  True
-}
+    "database": "pysports",
+    "raise_on_warnings": True
+} 
+
 
 try:
 
-    db = mysql.connector.connect
+    db = mysql.connector.connect(**config)
     
     print("\n  Database user {} connected to MySQL on host {} with database {}".format(config["user"], config["host"], config["database"]))
 
