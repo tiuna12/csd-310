@@ -68,13 +68,13 @@ def main():
         choice = int(input("Select an option: "))
         
         if choice == 1:
-            show_books(cursor)
+            show_books()
         elif choice == 2:
-            show_locations(cursor)
+            show_locations()
         elif choice == 3:
-            user_id = validate_user(cursor)
+            user_id = validate_user()
             if user_id:
-                show_account_menu(cursor, user_id)
+                show_account_menu( user_id)
         elif choice == 4:
             break
         else:
