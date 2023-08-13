@@ -11,6 +11,35 @@ config = {
     "database": "whatabook",
     "raise_on_warnings": True
 }
+def main():
+    intro()
+    
+    while True:
+        show_menu()
+        choice = int(input("Select an option: "))
+        
+        if choice == 1:
+            show_books()
+        elif choice == 2:
+            show_locations()
+        elif choice == 3:
+            user_id = validate_user()
+            if user_id:
+                show_account_menu( user_id)
+        elif choice == 4:
+            break
+        else:
+            print("Invalid choice. Please select a valid option.")
+
+    conn.close()
+
+if __name__ == "__main__":
+    main()
+
+
+def intro():
+    print("Welcome To WhatABook App")
+    print()
 
 def show_menu():
     print("Menu:")
@@ -61,28 +90,4 @@ def show_books_to_add(cursor, user_id):
     available_books = cursor.fetchall()
     for book in available_books:
         print(f"ID: {book[0]}, Name: {book[1]}, Author: {book[2]}, Details: {book[3]}")
-
-def main():
-    while True:
-        show_menu()
-        choice = int(input("Select an option: "))
-        
-        if choice == 1:
-            show_books()
-        elif choice == 2:
-            show_locations()
-        elif choice == 3:
-            user_id = validate_user()
-            if user_id:
-                show_account_menu( user_id)
-        elif choice == 4:
-            break
-        else:
-            print("Invalid choice. Please select a valid option.")
-
-    conn.close()
-
-if __name__ == "__main__":
-    main()
-
 
