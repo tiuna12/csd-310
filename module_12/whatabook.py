@@ -1,9 +1,7 @@
 # IMPORT STATEMENTS
 import sys
-from mysql import connector
 import mysql.connector
-from mysql.connector import errorcode
-
+#f-- Active: 1689739254286@@127.0.0.1@3306@whatabook
 # DATABASE CONFIG
 config = {
     "user": "whatabook_user",
@@ -26,13 +24,13 @@ def show_menu():
     print("4. Exit Program")
 
 def show_books(cursor):
-    cursor.execute('SELECT * FROM books')
+    cursor.execute('SELECT * FROM book')
     books = cursor.fetchall()
     for book in books:
         print(f"ID: {book[0]}, Name: {book[1]}, Author: {book[2]}, Details: {book[3]}")
 
 def show_locations(cursor):
-    cursor.execute('SELECT * FROM locations')
+    cursor.execute('SELECT * FROM location')
     locations = cursor.fetchall()
     for location in locations:
         print(f"ID: {location[0]}, Name: {location[1]}, Address: {location[2]}")
@@ -101,7 +99,7 @@ def main():
         else:
             print("Invalid choice. Please select a valid option.")
 
-    connector.close()
+    mysql.connector.close()
 
 if __name__ == "__main__":
     main()
